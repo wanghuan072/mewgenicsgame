@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Basic SEO (fallback; app updates per route) -->
+    <title>Mewgenics Game | Wiki, Classes &amp; Breeding Tool</title>
+    <meta
+      name="description"
+      content="Explore a curated Mewgenics wiki with items, bosses, NPCs, and events—plus class collars, a breeding calculator, guides, mods, and news for fast lookup."
+    >
+    <meta
+      name="keywords"
+      content="mewgenics guide, mewgenics wiki, mewgenics breeding tool, mewgenics classes, mewgenics items"
+    >
+    <meta name="author" content="Mewgenics Guide">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph (fallback; app updates per route) -->
+    <meta property="og:title" content="Mewgenics Game | Wiki, Classes &amp; Breeding Tool">
+    <meta
+      property="og:description"
+      content="Explore a curated Mewgenics wiki with items, bosses, NPCs, and events—plus class collars, a breeding calculator, guides, mods, and news for fast lookup."
+    >
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Mewgenics Guide">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="/images/about.webp">
+    <meta property="og:url" content="https://mewgenics.guide/">
+
+    <!-- Twitter (fallback; app updates per route) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mewgenics Game | Wiki, Classes &amp; Breeding Tool">
+    <meta
+      name="twitter:description"
+      content="Explore a curated Mewgenics wiki with items, bosses, NPCs, and events—plus class collars, a breeding calculator, guides, mods, and news for fast lookup."
+    >
+    <meta name="twitter:image" content="/images/about.webp">
+
+    <!-- Canonical (updated per route by app) -->
+    <link rel="canonical" href="https://mewgenics.guide/">
+
+    <!-- Structured Data (fallback; app may overwrite later if needed) -->
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"WebSite","name":"Mewgenics Guide","url":"https://mewgenics.guide/","description":"Explore a curated Mewgenics wiki with items, bosses, NPCs, and events—plus class collars, a breeding calculator, guides, mods, and news for fast lookup."}
+    </script>
+
+    <!-- 延迟加载第三方脚本 -->
+  <script>
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        // 延迟加载Google Analytics
+        const gtagScript = document.createElement('script');
+        gtagScript.async = true;
+        gtagScript.defer = true;
+        gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-RC6GCB2TZP';
+        document.head.appendChild(gtagScript);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-RC6GCB2TZP');
+
+
+        // 延迟加载广告
+        // const adsScript = document.createElement('script');
+        // adsScript.async = true;
+        // adsScript.defer = true;
+        // adsScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9851125738901343';
+        // adsScript.crossOrigin = 'anonymous';
+        // document.head.appendChild(adsScript);
+      }, 3000);
+    });
+  </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
