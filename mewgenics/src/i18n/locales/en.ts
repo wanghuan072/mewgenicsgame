@@ -48,7 +48,7 @@ export default {
     legalCopyright: 'Copyright',
     legalAbout: 'About Us',
     legalContact: 'Contact Us',
-    bottomLine: '© 2026 mewgenics.guide. All rights reserved. Updated: {date}.',
+    bottomLine: '© 2026 mewgenicsgame.org. All rights reserved. Updated: {date}.',
     disclaimer:
       'This is an independent fan site for informational purposes only. All trademarks and copyrights belong to their respective owners.',
   },
@@ -129,31 +129,31 @@ export default {
     privacy: {
       title: 'Privacy Policy & Data Use | Mewgenics Game',
       description:
-        'Read the Privacy Policy for mewgenics.guide to learn what data we collect, how analytics are used, and how email contact information is handled.',
+        'Read the Privacy Policy for mewgenicsgame.org to learn what data we collect, how analytics are used, and how email contact information is handled.',
       keywords: 'privacy policy, data use, mewgenics guide privacy, analytics, email contact',
     },
     terms: {
       title: 'Terms of Service & Site Use | Mewgenics Game',
       description:
-        'Review the Terms of Service for mewgenics.guide, including acceptable use, disclaimers, external links, and how to contact us about site issues or requests.',
+        'Review the Terms of Service for mewgenicsgame.org, including acceptable use, disclaimers, external links, and how to contact us about site issues or requests.',
       keywords: 'terms of service, site use, mewgenics guide terms, disclaimer, external links',
     },
     copyright: {
       title: 'Copyright & Attribution | Mewgenics Game',
       description:
-        'Copyright and attribution for mewgenics.guide. See how trademarks are treated, how sources are credited, and how to request corrections or removals.',
+        'Copyright and attribution for mewgenicsgame.org. See how trademarks are treated, how sources are credited, and how to request corrections or removals.',
       keywords: 'copyright, attribution, trademarks, takedown request, mewgenics guide',
     },
     about: {
       title: 'About This Site: Sources & Contact | Mewgenics Game',
       description:
-        'Learn what mewgenics.guide is, where our wiki data comes from, and how we maintain the site. Find contact details for feedback, corrections, and takedowns.',
+        'Learn what mewgenicsgame.org is, where our wiki data comes from, and how we maintain the site. Find contact details for feedback, corrections, and takedowns.',
       keywords: 'about mewgenics guide, sources, community wiki, contact, takedown',
     },
     contact: {
       title: 'Contact: Feedback, Corrections & Takedowns | Mewgenics Game',
       description:
-        'Contact mewgenics.guide to report errors, request updates, or submit takedown and rights inquiries. Email wyong@mewgenics.com with links to affected pages.',
+        'Contact mewgenicsgame.org to report errors, request updates, or submit takedown and rights inquiries. Email wyong@mewgenics.com with links to affected pages.',
       keywords: 'contact, corrections, takedown, rights inquiry, wyong@mewgenics.com',
     },
   },
@@ -552,7 +552,7 @@ export default {
     lastUpdated: 'Last updated: 2026-03-05',
     section1Title: '1. About this site',
     section1Body:
-      'This website ("mewgenics.guide") is an independent, community-made Mewgenics guide. It is not affiliated with the official Mewgenics developers or publishers. All trademarks and copyrights remain with their respective owners.',
+      'This website ("mewgenicsgame.org") is an independent, community-made Mewgenics guide. It is not affiliated with the official Mewgenics developers or publishers. All trademarks and copyrights remain with their respective owners.',
     section2Title: '2. Data we collect',
     section2Intro:
       'This site is intentionally lightweight. We do not run user accounts and do not ask you to submit personal information through forms.',
@@ -612,14 +612,14 @@ export default {
   CopyrightPage: {
     breadcrumb: 'Copyright & Attribution',
     title: 'Copyright & Attribution',
-    subtitle: 'Copyright and attribution for mewgenics.guide. Trademarks, sources, and how to request corrections or removals.',
+    subtitle: 'Copyright and attribution for mewgenicsgame.org. Trademarks, sources, and how to request corrections or removals.',
     lastUpdated: 'Last updated: 2026-03-05',
     section1Title: '1. Game content',
     section1Body:
       'Mewgenics, its logo, characters, artwork, and in‑game assets are the property of their respective copyright holders. This site does not claim ownership over any official Mewgenics assets.',
     section2Title: '2. Fan‑made content',
     section2Body:
-      'Text guides, layouts, and code for this site are created by the community. Unless otherwise noted, you may link to and quote small portions of text from this site with attribution to “mewgenics.guide”.',
+      'Text guides, layouts, and code for this site are created by the community. Unless otherwise noted, you may link to and quote small portions of text from this site with attribution to “mewgenicsgame.org”.',
     section3Title: '3. Use of screenshots and logos',
     section3Body:
       'Screenshots and logos are used under fair‑use or equivalent community guidelines where applicable. If you are a rights holder and believe something should be removed or credited differently, please contact us.',

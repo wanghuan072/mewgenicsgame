@@ -6,7 +6,7 @@ import jiti from 'jiti'
 const j = jiti(import.meta.url, { interopDefault: true })
 
 const SITE_URL =
-  (process.env.SITE_URL || process.env.VITE_SITE_URL || 'https://mewgenics.guide').replace(/\/+$/, '')
+  (process.env.SITE_URL || process.env.VITE_SITE_URL || 'https://mewgenicsgame.org').replace(/\/+$/, '')
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
