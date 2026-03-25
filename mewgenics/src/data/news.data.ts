@@ -41,7 +41,7 @@ export default [
   title: 'Is Mewgenics Coming to PS5 and Nintendo Switch? (Developer Roadmap)',
   description: 'When is Mewgenics releasing on consoles? Get the latest updates from the developers regarding the Nintendo Switch, PS5, and Xbox ports.',
   publishDate: '2026-03-08',
-  imageUrl: '/images/news/news-01.webp',
+  imageUrl: '/images/news/news-02.webp',
   imageAlt: 'Mewgenics logo alongside PlayStation and Nintendo Switch icons',
   isNow: false,
   seo: {
@@ -75,7 +75,7 @@ export default [
     title: 'Mewgenics Adds Official Russian & Chinese Translations Following Sales Milestone',
     description: 'Mewgenics celebrates a massive sales milestone. Developers announce upcoming official language support, including Russian (русификатор) and Simplified Chinese.',
     publishDate: '2026-03-10',
-    imageUrl: '/images/news/news-01.webp',
+    imageUrl: '/images/news/news-03.webp',
     imageAlt: 'Mewgenics cats celebrating a community milestone',
     isNow: false,
     seo: {
