@@ -99,7 +99,8 @@ const mods = modsData as ModPage[]
 .mods-list {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
+  margin-inline: auto;
 }
 
 .mod-article {
@@ -108,29 +109,52 @@ const mods = modsData as ModPage[]
   border-radius: 16px;
   overflow: hidden;
   border-left: 4px solid var(--color-primary);
+  transition:
+    border-color var(--transition-base),
+    box-shadow var(--transition-base),
+    transform var(--transition-base);
+}
+
+.mod-article:hover {
+  border-left-color: var(--color-primary-hover);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.32);
+  transform: translateY(-2px);
 }
 
 .article-link {
   display: grid;
-  grid-template-columns: 320px 1fr;
-  min-height: 200px;
+  grid-template-columns: minmax(11rem, 17.5rem) minmax(0, 1fr);
+  gap: 1.25rem 1.5rem;
+  align-items: start;
+  padding: 1.1rem 1.35rem 1.15rem 1.15rem;
   text-decoration: none;
   color: inherit;
-  transition: border-color var(--transition-base), box-shadow var(--transition-base);
 }
 
-.article-link:hover {
-  border-left-color: var(--color-primary-hover);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+.article-link:focus-visible {
+  outline: none;
 }
 
+.mod-article:has(.article-link:focus-visible) {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Thumbnail: fixed aspect so tall text never stretches the image (was height: 100% of grid row). */
 .article-image-wrap {
   position: relative;
-  min-height: 200px;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  max-height: 11rem;
+  border-radius: 12px;
+  overflow: hidden;
   background: var(--color-bg);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
 
 .article-image {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -155,10 +179,10 @@ const mods = modsData as ModPage[]
 }
 
 .article-content {
-  padding: 1.5rem 2rem;
+  padding: 0.15rem 0 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   min-width: 0;
 }
 
@@ -178,10 +202,11 @@ const mods = modsData as ModPage[]
 .article-description {
   font-size: 0.9375rem;
   color: var(--color-text-muted);
-  margin: 0 0 1rem;
+  margin: 0 0 0.85rem;
+  line-height: 1.55;
   display: -webkit-box;
-  line-clamp: 2;
-  -webkit-line-clamp: 2;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -230,26 +255,38 @@ const mods = modsData as ModPage[]
 }
 
 @media (max-width: 1024px) {
+  .mods-list {
+    max-width: none;
+  }
+
   .article-link {
     grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem 1.15rem 1.1rem;
   }
 
   .article-image-wrap {
-    min-height: 180px;
+    aspect-ratio: 2 / 1;
+    max-height: 14rem;
+  }
+
+  .article-content {
+    padding-top: 0;
   }
 }
 
 @media (max-width: 768px) {
   .mods-list {
-    gap: 1.5rem;
-  }
-
-  .article-content {
-    padding: 1.25rem 1.5rem;
+    gap: 1.25rem;
   }
 
   .article-title {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
+  }
+
+  .article-description {
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
   }
 }
 </style>

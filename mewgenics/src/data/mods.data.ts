@@ -189,5 +189,58 @@ export default [
     `,
   },
 
+  {
+    id: 5,
+    slug: 'deja-vu-nerf',
+    title: 'Deja Vu Nerf: Softer Disorder Effects for Save-Scum Runs',
+    description:
+      'Reworks Deja Vu and Severe Deja Vu to be less punishing: a flat stat penalty instead of random action cancels, and severe form blocks healing instead of handing control to Steven.',
+    publishDate: '2026-03-30',
+    imageUrl: '/images/mods/mod-05.png',
+    imageAlt: 'Nexus Mods thumbnail for the Deja Vu Nerf Mewgenics gameplay mod',
+    sourceUrl: 'https://www.nexusmods.com/mewgenics/mods/229',
+    author: 'YourMomWasTaken',
+    sourceLabel: 'Nexus Mods',
+    isNow: false,
+    seo: {
+      title: 'Mewgenics Deja Vu Nerf Mod - Disorder Rebalance (Nexus 229)',
+      description:
+        'Download Deja Vu Nerf for Mewgenics: replaces harsh vanilla Deja Vu RNG with -1 all stats, and Severe Deja Vu with permanent-damage (no healing) instead of Steven. Requires Mewtator.',
+      keywords: [
+        'mewgenics deja vu mod',
+        'mewgenics severe deja vu',
+        'mewgenics disorder nerf',
+        'mewgenics save scum mod',
+        'mewtator gameplay mod',
+        'nexus mewgenics 229',
+      ],
+    },
+    detailsHtml: `
+      <p>The vanilla <strong>Deja Vu</strong> disorders in <strong>Mewgenics</strong> can feel brutally unfair: cancelled actions and, at severe levels, losing control to <strong>Steven</strong>. <strong>Deja Vu Nerf</strong> by <strong>YourMomWasTaken</strong> is a gameplay rebalance that keeps tension high without the same “game over your run” spikes—positioning save-scumming as a deliberate tactic rather than something other mods simply delete.</p>
+
+      <h2>What Changes</h2>
+      <p>The author reworks both stages of the disorder so runs stay challenging but more readable:</p>
+      <ul>
+        <li><strong>Deja Vu:</strong> Now applies <strong>-1 to all stats</strong> instead of a <strong>10% chance to cancel actions</strong>.</li>
+        <li><strong>Severe Deja Vu:</strong> Now <strong>disables all forms of healing</strong>, so damage is permanent—replacing the vanilla line where <strong>Steven has control of you</strong>.</li>
+      </ul>
+
+      <h2>Design Intent</h2>
+      <p>Unlike many community tweaks that remove Steven outright, this mod tries to preserve a risk/reward loop around risky play: you still pay a price for stacking disorders, but the penalty is systemic (stats and sustain) rather than sudden hard fails.</p>
+
+      <h2>Requirements &amp; Install</h2>
+      <p>This is a <strong>Mewtator</strong> script/content mod. Extract the folder into your <strong>Mewtator &gt; mods</strong> directory. The author notes it is <strong>incompatible with other mods that edit the DejaVu disorder</strong>.</p>
+      <p>Technically, the mod overwrites the <code>DejaVu</code> entry in <code>data/passives/disorders.gon</code> (as packaged on Nexus).</p>
+
+      <h2>Compatibility &amp; Achievements</h2>
+      <ul>
+        <li><strong>Mewtator required:</strong> Listed as a Nexus dependency on the same loader family as other script mods.</li>
+        <li><strong>Achievements:</strong> Like most injected mods, expect Steam achievements to be affected while mods are active—check current game/mod docs for your build.</li>
+      </ul>
+
+      <p>Grab the latest file from <a href="https://www.nexusmods.com/mewgenics/mods/229" target="_blank" rel="noopener noreferrer">Nexus Mods (mod 229)</a> or browse our full <a href="/mods">Mewgenics Mod Directory</a> for more gameplay tweaks.</p>
+    `,
+  },
+
 
 ]
