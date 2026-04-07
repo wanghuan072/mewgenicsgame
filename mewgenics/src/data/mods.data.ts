@@ -242,5 +242,58 @@ export default [
     `,
   },
 
+  {
+    id: 6,
+    slug: 'items-dont-break',
+    title: "Items Don't Break: Stop Gear Breaking After Adventures",
+    description:
+      'Mewgenics QoL mod that sets degrade_after_adventure to false so equipped items no longer break when you return from a run—install via Mewtator with merged item data patches.',
+    publishDate: '2026-04-05',
+    imageUrl: '/images/mods/mod-06.webp',
+    imageAlt:
+      "Mewgenics Items Don't Break mod thumbnail from Nexus Mods—item durability and adventure gear preservation",
+    sourceUrl: 'https://www.nexusmods.com/mewgenics/mods/249',
+    author: 'YourMomWasTaken',
+    sourceLabel: 'Nexus Mods',
+    isNow: false,
+    seo: {
+      title: "Mewgenics Items Don't Break Mod | No Post-Adventure Item Breaks (Nexus 249)",
+      description:
+        "Download Items Don't Break for Mewgenics (Nexus 249): disables post-adventure item degradation via degrade_after_adventure. Mewtator install, merged .gon item files. Author: YourMomWasTaken.",
+      keywords: [
+        "mewgenics items don't break mod",
+        'mewgenics item durability mod',
+        'mewgenics gear break fix',
+        'mewgenics adventure item break',
+        'mewgenics degrade_after_adventure',
+        'mewtator items mod',
+        'nexus mewgenics 249',
+      ],
+    },
+    detailsHtml: `
+      <p><strong>Items Don't Break</strong> (listed on Nexus as <em>Items Dont Break</em>) is a <strong>Mewgenics</strong> quality-of-life mod by <strong>YourMomWasTaken</strong>. The short pitch on the mod page: <strong>items will not break after an adventure</strong>—ideal if you are tired of losing trinkets, weapons, or armor to post-run durability rolls.</p>
+
+      <h2>What It Does (Technical)</h2>
+      <p>According to the Nexus description, the mod sets <code>degrade_after_adventure</code> to <strong>false</strong> so your loadout is not consumed or destroyed when you come back from an expedition. It ships as merge patches under <code>data/items</code> for categories such as trinkets, neck items, head/face gear, consumables, quest beanies, armor sets, and weapons (via bundled <code>.gon.merge</code> files).</p>
+
+      <h2>Author Caveat</h2>
+      <p>The uploader notes they are <strong>unsure</strong> whether this fully prevents items from becoming <em>worn</em>, or only stops worn items from the <strong>50% break chance</strong> after returning—read the latest Nexus posts and patch notes if you need exact behavior for your game version.</p>
+
+      <h2>Requirements &amp; Installation</h2>
+      <ul>
+        <li><strong>Mewtator</strong> (Mewgenics Mod Manager) is listed as a Nexus dependency.</li>
+        <li>Extract the mod into your <strong>mewtator/mods</strong> folder following the author instructions.</li>
+      </ul>
+
+      <h2>Who It Helps</h2>
+      <p>Best for breeders and dungeon runners who want to keep favorite weapons, trinkets, and armor sets without rerolling replacements after every bad return—without editing saves by hand.</p>
+
+      <h2>Achievements &amp; Balance</h2>
+      <p>Disabling breakage changes economy and difficulty versus vanilla. Like other Mewtator content, assume <strong>Steam achievements</strong> may be affected while mods are active—confirm against your build.</p>
+
+      <p>Get the current download from <a href="https://www.nexusmods.com/mewgenics/mods/249" target="_blank" rel="noopener noreferrer">Nexus Mods (mod 249)</a> or explore more tools in our <a href="/mods">Mewgenics Mod Directory</a>.</p>
+    `,
+  },
+
 
 ]
