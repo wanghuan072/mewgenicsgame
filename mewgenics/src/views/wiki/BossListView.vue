@@ -138,6 +138,7 @@ const entries = computed(() => (bossData as unknown as BossEntry[]))
   display: flex;
   flex-direction: column;
   height: 100%;
+  min-height: 17.5rem;
   text-decoration: none;
   color: inherit;
   background: var(--color-bg-card);
@@ -201,6 +202,7 @@ const entries = computed(() => (bossData as unknown as BossEntry[]))
   color: var(--color-text-muted);
   margin: 0;
   line-height: 1.4;
+  min-height: calc(2 * 1.4 * 0.8125rem);
   display: -webkit-box;
   -webkit-line-clamp: 2;
   line-clamp: 2;

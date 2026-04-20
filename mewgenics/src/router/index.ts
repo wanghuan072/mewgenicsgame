@@ -18,6 +18,8 @@ import NpcsListView from '../views/wiki/NpcsListView.vue'
 import NpcsDetailView from '../views/wiki/NpcsDetailView.vue'
 import ItemsListView from '../views/wiki/ItemsListView.vue'
 import ItemsDetailView from '../views/wiki/ItemsDetailView.vue'
+import MiniBossesListView from '../views/wiki/MiniBossesListView.vue'
+import EnemiesListView from '../views/wiki/EnemiesListView.vue'
 import PrivacyPolicyView from '../views/PrivacyPolicyView.vue'
 import TermsOfServiceView from '../views/TermsOfServiceView.vue'
 import CopyrightView from '../views/CopyrightView.vue'
@@ -164,6 +166,18 @@ const router = createRouter({
       name: 'wiki-items-detail',
       component: ItemsDetailView,
       meta: { dynamicTDK: true },
+    },
+    {
+      path: '/wiki/mini-bosses',
+      name: 'wiki-mini-bosses',
+      component: MiniBossesListView,
+      meta: { seoKey: 'wikiMiniBosses' },
+    },
+    {
+      path: '/wiki/enemies',
+      name: 'wiki-enemies',
+      component: EnemiesListView,
+      meta: { seoKey: 'wikiEnemies' },
     },
     {
       path: '/privacy',

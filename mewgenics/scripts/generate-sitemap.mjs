@@ -52,6 +52,8 @@ const staticPaths = [
   '/wiki/events',
   '/wiki/npcs',
   '/wiki/items',
+  '/wiki/mini-bosses',
+  '/wiki/enemies',
   '/privacy',
   '/terms',
   '/copyright',
@@ -68,6 +70,7 @@ const boss = j(path.join(projectRoot, 'src/data/wiki/boss.data.ts')).default || 
 const events = j(path.join(projectRoot, 'src/data/wiki/events.data.ts')).default || []
 const npcs = j(path.join(projectRoot, 'src/data/wiki/npcs.data.ts')).default || []
 const items = j(path.join(projectRoot, 'src/data/wiki/items.data.ts')).default || []
+const minibosses = j(path.join(projectRoot, 'src/data/wiki/minibosses.data.ts')).default || []
 
 const dynamicPaths = []
 for (const g of guides) dynamicPaths.push(`/guides/${g.slug}`)
@@ -79,6 +82,7 @@ for (const b of boss) if (b?.isPage) dynamicPaths.push(`/wiki/boss/${b.slug}`)
 for (const e of events) if (e?.isPage) dynamicPaths.push(`/wiki/events/${e.slug}`)
 for (const n of npcs) if (n?.isPage) dynamicPaths.push(`/wiki/npcs/${n.slug}`)
 for (const i of items) if (i?.isPage) dynamicPaths.push(`/wiki/items/${i.slug}`)
+for (const m of minibosses) if (m?.isPage) dynamicPaths.push(`/wiki/mini-bosses/${m.slug}`)
 
 const allPaths = Array.from(new Set([...staticPaths, ...dynamicPaths]))
 

@@ -64,6 +64,58 @@ export type ItemEntry = {
   detailsHtml: string
 }
 
+/** Mini-boss wiki entry (same fields as boss list/detail for shared UI). */
+export type MiniBossEntry = BossEntry
+
+/** Single enemy card (list-only). Optional text fields omitted when empty. */
+export type EnemyCard = {
+  id: number
+  slug: string
+  name: string
+  description?: string
+  /** Summon | Event | Bonus bird | Standard */
+  enemyType?: string
+  spawn?: string
+  /** e.g. bonus bird size + rarity */
+  tags?: string[]
+  publishDate: string
+  imageUrl: string
+  imageAlt: string
+  seo: { title?: string; description?: string; keywords?: string[] }
+  isPage: boolean
+  detailsHtml: string
+}
+
+export type EnemyAreaBlock = {
+  id: string
+  title: string
+  entries: EnemyCard[]
+}
+
+export type EnemyChapterBlock = {
+  id: string
+  title: string
+  areas?: EnemyAreaBlock[]
+  entries?: EnemyCard[]
+}
+
+export type EnemyWikiGroup = {
+  id: string
+  title: string
+  /** Present for act-scoped groups (e.g. Act 1). */
+  actLabel?: string
+  chapters: EnemyChapterBlock[]
+}
+
+export type EnemiesWikiData = {
+  groups: EnemyWikiGroup[]
+}
+
+/** Flattened row for search (includes hierarchy path). */
+export type EnemyEntry = EnemyCard & {
+  contextPath?: string
+}
+
 /** NPC wiki entry with optional detail page. Same shape as BossEntry for consistency. */
 export type NpcEntry = {
   id: string

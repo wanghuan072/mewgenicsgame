@@ -15,6 +15,7 @@ export default {
     backToEvents: 'Back to Events list',
     backToNpcs: 'Back to NPCs list',
     backToItems: 'Back to Items list',
+    backToMiniBosses: 'Back to Mini-Bosses list',
     openOn: 'Open on {source} ↗',
   },
   Header: {
@@ -31,7 +32,7 @@ export default {
   Footer: {
     brandName: 'Mewgenics Guide',
     brandDesc:
-      'A community resource for <strong>Mewgenics game</strong> players. Browse our wiki (Bosses, Items, NPCs, Events), explore every class collar, and use the Breeding Tool to plan traits, mutations, and builds.',
+      'A community resource for <strong>Mewgenics game</strong> players. Browse our wiki (Bosses, Mini-Bosses, Items, NPCs, Events), explore every class collar, and use the Breeding Tool to plan traits, mutations, and builds.',
     linkSteam: 'Steam',
     linkOfficial: 'Official Site',
     navigateTitle: 'NAVIGATE',
@@ -91,10 +92,11 @@ export default {
       keywords: 'mewgenics news, mewgenics updates, patch notes, platform updates, mewgenics modding',
     },
     wiki: {
-      title: 'Wiki Index: Bosses, Items, NPCs & Events | Mewgenics Game',
+      title: 'Wiki Index: Bosses, Mini-Bosses, Items, NPCs & Events | Mewgenics Game',
       description:
-        'Browse the Mewgenics wiki by category: bosses, items, NPCs, and events. Open curated lists with quick summaries and jump into detail pages where available.',
-      keywords: 'mewgenics wiki, mewgenics bosses, mewgenics items, mewgenics npcs, mewgenics events',
+        'Browse the Mewgenics wiki by category: bosses, mini-bosses, items, NPCs, and events. Open curated lists with quick summaries and jump into detail pages where available.',
+      keywords:
+        'mewgenics wiki, mewgenics bosses, mewgenics mini-bosses, mewgenics items, mewgenics npcs, mewgenics events',
     },
     wikiBoss: {
       title: 'Boss List: Acts, House Bosses & Finals | Mewgenics Game',
@@ -119,6 +121,20 @@ export default {
       description:
         'Browse Mewgenics items with slot, rarity, and uses lines plus the effect text. Find weapons, trinkets, armor, and consumables for planning builds and runs.',
       keywords: 'mewgenics items, item list, weapons, trinkets, armor, consumables',
+    },
+    wikiMiniBosses: {
+      title: 'Mini-Bosses: Act Splits, Unlocks & Class Picks | Mewgenics Game',
+      description:
+        'Browse Mewgenics mini-bosses: mid-chapter split encounters, unlock rules (Sewers, Bunker, Crater, Jester), and Act 1 class-themed picks. Open a name for a short guide page.',
+      keywords:
+        'mewgenics mini-bosses, mewgenics miniboss list, chapter split boss, rat king unlock, bumblefoot, zapphauser, dr mangler',
+    },
+    wikiEnemies: {
+      title: 'Enemies: Summons, Chapter Pools & Bonus Birds | Mewgenics Game',
+      description:
+        'Browse Mewgenics enemies by type (summons, events, bonus birds, standard chapter foes) and optional spawn labels. Curated from the community wiki for quick lookup during runs.',
+      keywords:
+        'mewgenics enemies, enemy list, summons, bonus birds, chapter enemies, mewgenics wiki enemies',
     },
     search: {
       title: 'Search Mewgenics Guide | Wiki, Classes, Mods & News',
@@ -398,26 +414,30 @@ export default {
     faq1a: 'We only expand selected entries into full pages. The list pages still include short summaries so you can scan and search quickly.',
     faq2q: 'What should I read during a run?',
     faq2a:
-      'Use category lists for fast lookup. For strategy, open a related <a class="inline-link" href="/guides">Guide</a> and then cross-check <a class="inline-link" href="/wiki/items">Items</a> or <a class="inline-link" href="/wiki/boss">Boss</a>.',
+      'Use category lists for fast lookup. For strategy, open a related <a class="inline-link" href="/guides">Guide</a> and then cross-check <a class="inline-link" href="/wiki/items">Items</a>, <a class="inline-link" href="/wiki/mini-bosses">Mini-Bosses</a>, <a class="inline-link" href="/wiki/enemies">Enemies</a>, or <a class="inline-link" href="/wiki/boss">Boss</a>.',
     faq3q: 'Can I feature a wiki entry on the homepage?',
     faq3a:
       'Some entries may be featured on the homepage when they\'re especially useful or timely. If you don\'t see an entry there, you can still find it quickly through the category lists above.',
     note: 'Notes: This site is community-maintained and may not match final game values after patches.',
-    sectionBoss: 'Boss',
+    sectionBoss: 'Mewgenics Bosses',
     sectionBossDesc: 'Boss encounters, mechanics, and strategies.',
-    sectionEvents: 'Events',
+    sectionEvents: 'Mewgenics Events',
     sectionEventsDesc: 'In-game events and time-limited content.',
-    sectionNpcs: 'NPCs',
+    sectionNpcs: 'Mewgenics NPCs',
     sectionNpcsDesc: 'Non-player characters and quest givers.',
-    sectionItems: 'Items',
+    sectionItems: 'Mewgenics Items',
     sectionItemsDesc: 'Items, equipment, and consumables.',
+    sectionMiniBoss: 'Mewgenics Mini-Bosses',
+    sectionMiniBossDesc: 'Mid-chapter split encounters: Act 1–3 rosters, unlock rules, and event variants.',
+    sectionEnemies: 'Mewgenics Enemies',
+    sectionEnemiesDesc: 'Summons, event foes, bonus birds, and chapter pool enemies with type and spawn labels.',
   },
   SearchPage: {
     breadcrumb: 'Search',
     title: 'Search Mewgenics Guide',
     subtitlePrefix: 'Results for "',
     subtitleSuffix: '" across classes, guides, mods, news, and wiki entries.',
-    placeholder: 'Search classes, bosses, items, guides, mods…',
+    placeholder: 'Search classes, bosses, mini-bosses, enemies, items, guides, mods…',
     searchBtn: 'Search',
     emptyHint: 'Type a keyword (for example: "classes", "Fancy Bow", "Dybbuk", "mods") to search the site.',
     noResults: 'No results found for "',
@@ -427,6 +447,8 @@ export default {
     blockMods: 'Mods',
     blockNews: 'News',
     blockBosses: 'Bosses',
+    blockMiniBosses: 'Mini-Bosses',
+    blockEnemies: 'Enemies',
     blockItems: 'Items',
     blockNpcs: 'NPCs',
     blockEvents: 'Events',
@@ -437,7 +459,7 @@ export default {
   },
   BossListPage: {
     breadcrumb: 'Boss',
-    title: 'Boss',
+    title: 'Mewgenics Bosses',
     listHeading: 'Boss list',
     subtitle: 'Boss encounters, mechanics, and strategies. Data from <a href="https://mewgenics.wiki.gg/wiki/Bosses" target="_blank" rel="noopener">mewgenics.wiki.gg</a>.',
     viewDetails: 'View details →',
@@ -460,7 +482,7 @@ export default {
   },
   EventsListPage: {
     breadcrumb: 'Events',
-    title: 'Events',
+    title: 'Mewgenics Events',
     listHeading: 'Events list',
     subtitle: 'In-game events that break up combat. Data from <a href="https://mewgenics.wiki.gg/wiki/Events" target="_blank" rel="noopener">mewgenics.wiki.gg</a>.',
     viewDetails: 'View details →',
@@ -483,7 +505,7 @@ export default {
   },
   NpcsListPage: {
     breadcrumb: 'NPCs',
-    title: 'NPCs',
+    title: 'Mewgenics NPCs',
     listHeading: 'NPCs list',
     subtitle: 'Non-player characters and quest givers. Data from <a href="https://mewgenics.wiki.gg/wiki/Non-playable_characters" target="_blank" rel="noopener">mewgenics.wiki.gg</a>.',
     viewDetails: 'View details →',
@@ -505,7 +527,7 @@ export default {
   },
   ItemsListPage: {
     breadcrumb: 'Items',
-    title: 'Items',
+    title: 'Mewgenics Items',
     listHeading: 'Items list',
     subtitle: 'Weapons, trinkets, armor, and consumables. Data from <a href="https://mewgenics.wiki.gg/wiki/Items" target="_blank" rel="noopener">mewgenics.wiki.gg</a>.',
     viewDetails: 'View details →',
@@ -673,6 +695,55 @@ export default {
     notFoundTitle: 'Boss not found',
     notFoundSubtitle: 'We couldn\'t find that boss. Go back to the Bosses list.',
     noDetailSubtitle: 'This boss does not have a detail page yet.',
+  },
+  EnemiesListPage: {
+    breadcrumb: 'Enemies',
+    title: 'Mewgenics Enemies',
+    listHeading: 'Enemy list',
+    subtitle:
+      'Grouped like the wiki (Summons, Events, All → Bonus birds, then Act → Chapter → area). Art is pulled from wiki files where available; run the image script locally to refresh <code>public/images/enemies/</code>.',
+    aboutTitle: 'About this enemy list',
+    aboutText:
+      'Entries follow the Enemies page outline. Cards show image and name; extra lines (tags, type, description) only appear when we store them. Act 2–3 pools are not filled yet—extend the generator when you add more rows.',
+    list1: 'Boss-tier fights: see <a class="inline-link" href="/wiki/boss">Bosses</a> and <a class="inline-link" href="/wiki/mini-bosses">Mini-Bosses</a>.',
+    list2: 'Build planning: pair with <a class="inline-link" href="/wiki/items">Items</a> and <a class="inline-link" href="/classes">Classes</a>.',
+    list3: 'Run events: cross-check <a class="inline-link" href="/wiki/events">Events</a> when spawns change with weather or tragedies.',
+    faqTitle: 'FAQ',
+    faq1q: 'Why do some names appear twice (for example in Summons and a chapter list)?',
+    faq1a:
+      'The same display name can exist as a summon or familiar and again in a normal chapter pool. Rows use different slugs so search and filters stay unambiguous.',
+    faq2q: 'Is every enemy from the wiki here?',
+    faq2a:
+      'Not yet. Expand <code>scripts/generate-enemies-data.mjs</code>, run <code>npm run enemies:data</code>, then <code>npm run enemies:images</code> to download wiki art into <code>public/images/enemies/</code>, and run <code>npm run enemies:data</code> again so paths update.',
+    faq3q: 'What do the type labels mean?',
+    faq3a:
+      '<strong>Summon</strong> / <strong>Event</strong> / <strong>Bonus bird</strong> / <strong>Standard</strong> match wiki buckets. Bonus birds also get <strong>tags</strong> (size + rarity). Chapter cards under an act use the area name (Alley, Sewers, …) as the wiki does.',
+    note: 'Notes: Curated mirror of the community wiki; verify spawn tables after patches.',
+  },
+  MiniBossesListPage: {
+    breadcrumb: 'Mini-Bosses',
+    title: 'Mewgenics Mini-Bosses',
+    listHeading: 'Mini-boss list',
+    subtitle:
+      'Mid-chapter encounters on the normal/hard split. Data from <a href="https://mewgenics.wiki.gg/wiki/Mini-Bosses" target="_blank" rel="noopener">mewgenics.wiki.gg</a> (CC BY-SA).',
+    viewDetails: 'View details →',
+    aboutTitle: 'About Mewgenics mini-bosses',
+    aboutText:
+      'Mini-bosses gate chapter pacing: they are weaker than full bosses and boss lyrics do not play. Some entries unlock only after you clear a zone once (for example Sewers, Bunker, or The Crater) or unlock the Jester collar for Arthur.',
+    list1: 'Compare routes: read <a class="inline-link" href="/wiki/boss">Bosses</a> for act finales.',
+    list2: 'Prep builds: start from <a class="inline-link" href="/classes">Classes</a> and item checks on <a class="inline-link" href="/wiki/items">Items</a>.',
+    list3: 'Event variants: cross-link <a class="inline-link" href="/wiki/events">Events</a> when a run adds special encounters.',
+    faqTitle: 'FAQ',
+    faq1q: 'Why is Chapter 1 so class-heavy?',
+    faq1a:
+      'The community wiki notes that Chapter 1 mini-bosses map to class themes (Fighter, Hunter, Tank, etc.), helping new players learn kit identities before harder splits.',
+    faq2q: 'What does “locked” mean on the overview page?',
+    faq2a:
+      'Some mini-bosses only enter the spawn pool after you meet a progression condition (for example finishing Sewers once for Rat King). Exact rules can change with patches.',
+    faq3q: 'Are mini-bosses the same as bosses?',
+    faq3a:
+      'No. Mini-bosses sit on the chapter split path and are tuned below full bosses. Use this list for mid-act spikes; use <a class="inline-link" href="/wiki/boss">Bosses</a> for act/house finales.',
+    note: 'Notes: Text is a curated mirror of the community wiki; verify numbers and spawn logic after major updates.',
   },
   EventsDetailPage: {
     notFoundTitle: 'Event not found',

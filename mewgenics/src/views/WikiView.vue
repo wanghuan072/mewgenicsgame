@@ -31,6 +31,23 @@
                   <circle cx="15" cy="9" r="1" />
                   <path d="M9 13h6" />
                 </svg>
+                <!-- Mini-bosses: crossed blades -->
+                <svg v-else-if="section.icon === 'miniboss'" class="wiki-card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 4l14 16M19 4L5 20" />
+                  <path d="M7 4h3l2 3M14 17h3l-2-3" />
+                </svg>
+                <!-- Enemies: target -->
+                <svg v-else-if="section.icon === 'enemies'" class="wiki-card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3" />
+                  <line x1="12" y1="2" x2="12" y2="6" />
+                  <line x1="12" y1="18" x2="12" y2="22" />
+                  <line x1="2" y1="12" x2="6" y2="12" />
+                  <line x1="18" y1="12" x2="22" y2="12" />
+                  <line x1="4.93" y1="4.93" x2="7.76" y2="7.76" />
+                  <line x1="16.24" y1="16.24" x2="19.07" y2="19.07" />
+                  <line x1="4.93" y1="19.07" x2="7.76" y2="16.24" />
+                  <line x1="16.24" y1="7.76" x2="19.07" y2="4.93" />
+                </svg>
                 <!-- Events: calendar -->
                 <svg v-else-if="section.icon === 'events'" class="wiki-card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
@@ -99,18 +116,21 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 
 const router = useRouter()
 const { t } = useI18n()
 
-const wikiSections = [
-  { slug: 'boss', title: 'Boss', description: 'Boss encounters, mechanics, and strategies.', icon: 'boss' },
-  { slug: 'events', title: 'Events', description: 'In-game events and time-limited content.', icon: 'events' },
-  { slug: 'npcs', title: 'NPCs', description: 'Non-player characters and quest givers.', icon: 'npcs' },
-  { slug: 'items', title: 'Items', description: 'Items, equipment, and consumables.', icon: 'items' },
-]
+const wikiSections = computed(() => [
+  { slug: 'boss', title: t('WikiPage.sectionBoss'), description: t('WikiPage.sectionBossDesc'), icon: 'boss' },
+  { slug: 'mini-bosses', title: t('WikiPage.sectionMiniBoss'), description: t('WikiPage.sectionMiniBossDesc'), icon: 'miniboss' },
+  { slug: 'enemies', title: t('WikiPage.sectionEnemies'), description: t('WikiPage.sectionEnemiesDesc'), icon: 'enemies' },
+  { slug: 'events', title: t('WikiPage.sectionEvents'), description: t('WikiPage.sectionEventsDesc'), icon: 'events' },
+  { slug: 'npcs', title: t('WikiPage.sectionNpcs'), description: t('WikiPage.sectionNpcsDesc'), icon: 'npcs' },
+  { slug: 'items', title: t('WikiPage.sectionItems'), description: t('WikiPage.sectionItemsDesc'), icon: 'items' },
+])
 </script>
 
 <style scoped>
@@ -222,12 +242,21 @@ const wikiSections = [
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.25rem;
+  align-items: stretch;
+}
+
+.wiki-list > li {
+  display: flex;
+  min-height: 0;
 }
 
 .wiki-card {
   display: flex;
   align-items: flex-start;
   gap: 1.25rem;
+  flex: 1;
+  width: 100%;
+  min-height: 0;
   padding: 1.5rem;
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);
@@ -263,25 +292,48 @@ const wikiSections = [
 .wiki-card-body {
   flex: 1;
   min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .wiki-card-title {
   font-family: var(--font-heading);
-  font-size: 1.25rem;
+  font-size: 1.15rem;
+  line-height: 1.2;
   margin: 0 0 0.35rem;
+  min-height: calc(2 * 1.2 * 1.15rem);
+  max-height: calc(2 * 1.2 * 1.15rem);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
 }
 
 .wiki-card-desc {
   font-size: 0.9375rem;
   color: var(--color-text-muted);
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.5rem;
   line-height: 1.4;
+  min-height: calc(2 * 1.4 * 0.9375rem);
+  max-height: calc(2 * 1.4 * 0.9375rem);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: break-word;
 }
 
 .wiki-card-cta {
   font-size: 0.875rem;
   font-weight: 600;
   color: var(--color-primary);
+  margin-top: auto;
+  flex-shrink: 0;
 }
 
 .wiki-card-cta .arrow {

@@ -177,6 +177,54 @@
             </ul>
           </section>
 
+          <!-- Wiki: Mini-Bosses (list-only; no detail routes) -->
+          <section v-if="miniBossResults.length" class="block">
+            <h2 class="block-title">{{ t('SearchPage.blockMiniBosses') }}</h2>
+            <ul class="boss-grid" role="list">
+              <li v-for="entry in miniBossResults" :key="entry.id" class="boss-card-wrap">
+                <div class="boss-card boss-card--plain">
+                  <div class="boss-card-img-wrap">
+                    <img
+                      v-if="entry.imageUrl"
+                      class="boss-card-img"
+                      :src="entry.imageUrl"
+                      :alt="entry.imageAlt"
+                      loading="lazy"
+                    />
+                    <div v-else class="boss-card-img boss-card-img--placeholder" aria-hidden="true" />
+                  </div>
+                  <div class="boss-card-body">
+                    <h3 class="boss-card-name">{{ entry.name }}</h3>
+                    <p class="boss-card-desc">{{ entry.description }}</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </section>
+
+          <!-- Wiki: Enemies (list-only) -->
+          <section v-if="enemiesResults.length" class="block">
+            <h2 class="block-title">{{ t('SearchPage.blockEnemies') }}</h2>
+            <ul class="entry-list" role="list">
+              <li v-for="entry in enemiesResults" :key="entry.id" class="entry-row">
+                <div class="entry-link entry-link--plain">
+                  <img v-if="entry.imageUrl" class="entry-thumb" :src="entry.imageUrl" :alt="entry.imageAlt" loading="lazy" />
+                  <div class="entry-body">
+                    <h3 class="entry-name">{{ entry.name }}</h3>
+                    <p class="entry-meta-search">
+                      <span v-if="entry.enemyType" class="entry-meta-type">{{ entry.enemyType }}</span>
+                      <template v-if="entry.contextPath">
+                        <span v-if="entry.enemyType" class="entry-meta-sep" aria-hidden="true">·</span>
+                        <span>{{ entry.contextPath }}</span>
+                      </template>
+                    </p>
+                    <p v-if="entry.description" class="entry-desc">{{ entry.description }}</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </section>
+
           <!-- Wiki: Items style -->
           <section v-if="itemsResults.length" class="block">
             <h2 class="block-title">{{ t('SearchPage.blockItems') }}</h2>
@@ -283,11 +331,21 @@ import bossData from '../data/wiki/boss.data'
 import itemsData from '../data/wiki/items.data'
 import npcsData from '../data/wiki/npcs.data'
 import eventsData from '../data/wiki/events.data'
+import minibossData from '../data/wiki/minibosses.data'
+import enemiesData from '../data/wiki/enemies.data'
 import type { GuidePage } from '../types/guidePage'
 import type { ClassPage } from '../types/classPage'
 import type { ModPage } from '../types/modPage'
 import type { NewsPage } from '../types/newsPage'
-import type { BossEntry, ItemEntry, NpcEntry, EventEntry } from '../types/wiki'
+import type {
+  BossEntry,
+  ItemEntry,
+  NpcEntry,
+  EventEntry,
+  MiniBossEntry,
+  EnemyEntry,
+  EnemiesWikiData,
+} from '../types/wiki'
 
 const route = useRoute()
 const router = useRouter()
@@ -313,6 +371,31 @@ const bosses = bossData as unknown as BossEntry[]
 const items = itemsData as unknown as ItemEntry[]
 const npcs = npcsData as unknown as NpcEntry[]
 const events = eventsData as unknown as EventEntry[]
+const miniBosses = minibossData as unknown as MiniBossEntry[]
+const enemiesBundle = enemiesData as unknown as EnemiesWikiData
+
+function flattenEnemies(bundle: EnemiesWikiData): EnemyEntry[] {
+  const out: EnemyEntry[] = []
+  for (const g of bundle.groups) {
+    const gHead = g.actLabel || g.title
+    for (const ch of g.chapters) {
+      const chParts = [gHead, ch.title].filter(Boolean)
+      if (ch.entries) {
+        for (const e of ch.entries) {
+          out.push({ ...e, contextPath: chParts.join(' — ') })
+        }
+      }
+      if (ch.areas) {
+        for (const a of ch.areas) {
+          for (const e of a.entries) {
+            out.push({ ...e, contextPath: [...chParts, a.title].filter(Boolean).join(' — ') })
+          }
+        }
+      }
+    }
+  }
+  return out
+}
 
 const guidesResults = computed(() => {
   const q = normalize(query.value)
@@ -344,6 +427,28 @@ const bossResults = computed(() => {
   return bosses.filter((b) => match(b.name, q) || match(b.description, q) || match(b.slug, q))
 })
 
+const miniBossResults = computed(() => {
+  const q = normalize(query.value)
+  if (!q) return []
+  return miniBosses.filter((b) => match(b.name, q) || match(b.description, q) || match(b.slug, q))
+})
+
+const enemiesResults = computed(() => {
+  const q = normalize(query.value)
+  if (!q) return []
+  const enemies = flattenEnemies(enemiesBundle)
+  return enemies.filter(
+    (e) =>
+      match(e.name, q) ||
+      match(e.description, q) ||
+      match(e.slug, q) ||
+      match(e.enemyType, q) ||
+      match(e.spawn, q) ||
+      match(e.contextPath, q) ||
+      Boolean(e.tags?.some((t) => match(t, q))),
+  )
+})
+
 const itemsResults = computed(() => {
   const q = normalize(query.value)
   if (!q) return []
@@ -370,6 +475,8 @@ const isEmpty = computed(
     !modsResults.value.length &&
     !newsResults.value.length &&
     !bossResults.value.length &&
+    !miniBossResults.value.length &&
+    !enemiesResults.value.length &&
     !itemsResults.value.length &&
     !npcsResults.value.length &&
     !eventsResults.value.length,
@@ -692,6 +799,7 @@ watchEffect(() => {
   display: flex;
   flex-direction: column;
   height: 100%;
+  min-height: 17.5rem;
   text-decoration: none;
   color: inherit;
   background: var(--color-bg-card);
@@ -725,6 +833,13 @@ watchEffect(() => {
   font-size: 0.8125rem;
   color: var(--color-text-muted);
   margin: 0;
+  line-height: 1.4;
+  min-height: calc(2 * 1.4 * 0.8125rem);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .boss-card-cta {
@@ -748,9 +863,31 @@ watchEffect(() => {
   grid-template-columns: 120px 1fr;
   gap: 1.25rem;
   align-items: center;
+  min-height: 6.75rem;
   padding: 1rem 0;
   text-decoration: none;
   color: inherit;
+}
+
+.entry-link--plain {
+  cursor: default;
+}
+
+.entry-meta-search {
+  margin: 0 0 0.35rem;
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  line-height: 1.35;
+}
+
+.entry-meta-type {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.entry-meta-sep {
+  margin: 0 0.35rem;
+  opacity: 0.65;
 }
 
 .entry-thumb {
@@ -771,12 +908,25 @@ watchEffect(() => {
   font-size: 0.875rem;
   color: var(--color-text-muted);
   margin: 0 0 0.25rem;
+  line-height: 1.4;
+  min-height: calc(2 * 1.4 * 0.875rem);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .entry-intro {
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   color: var(--color-text-muted);
   margin: 0 0 0.25rem;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .entry-cta {

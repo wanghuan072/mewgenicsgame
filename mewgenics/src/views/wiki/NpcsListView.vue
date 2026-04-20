@@ -132,6 +132,7 @@ const entries = computed(() => npcsData as unknown as NpcEntry[])
   grid-template-columns: 140px 1fr;
   gap: 1.25rem;
   align-items: center;
+  min-height: 9.5rem;
   padding: 1rem 0;
   text-decoration: none;
   color: inherit;
@@ -173,6 +174,13 @@ const entries = computed(() => npcsData as unknown as NpcEntry[])
   font-size: 0.875rem;
   color: var(--color-text-muted);
   margin: 0 0 0.25rem;
+  line-height: 1.4;
+  min-height: calc(2 * 1.4 * 0.875rem);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .entry-cta {
